@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_bandcamp_sales
+    description: "Cleaned and standardized bandcamp sales data"
+    columns:
+      - name: id
+        description: "The primary key"
+        tests:
+          - not_null
+
+      - name: song_medium
+        description: "The medium of the item sold"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Digital Albums', 'Physical Items', 'Digital Tracks']
+
+      - name: item_type
+        description: "The category of the item"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Albums', 'Merchandise', 'Tracks']
+
+      - name: item_price_usd
+        description: "The price of the item in USD"
+        tests:
+          - not_null
+
+      - name: amount_paid_usd
+        description: "The total amount paid in USD"
+        tests:
+          - not_null
+
+      - name: amount_over_usd
+        description: "The extra amount paid over the item price in USD"
+        tests:
+          - not_null
