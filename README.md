@@ -75,3 +75,31 @@ uv run dbt deps
 ```Bash
 uv run dbt build
 ```
+
+The `build` command automatically seeds the raw data:
+
+![seeding](./docs/seed.png)
+
+Runs the staging models:
+
+![staging](./docs/staging_run.png)
+
+Runs the gold models:
+
+![gold](./docs/marts_run.png)
+
+ * Sample `dim_artists`:
+![dim_a](./docs/dim_artists.png)
+
+ * Sample `dim_items`:
+![dim_i](./docs/dim_item.png)
+
+ * Sample `fct_sales`:
+![fct_s](./docs/fct_sales.png)
+
+Executes all data tests in topological order
+* staging
+![staging test](./docs/staging_test.png)
+
+* gold
+![gold test](./docs/gold_test.png)
