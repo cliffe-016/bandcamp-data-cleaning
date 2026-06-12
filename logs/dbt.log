@@ -1,0 +1,46 @@
+[0m13:37:43.925765 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd2b5b90200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd2b553dbb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd2b4e3a420>]}
+
+
+============================== 13:37:43.961039 | 43b82af4-5b3f-4698-bf9c-4b149e20cdce ==============================
+[0m13:37:43.961039 [info ] [MainThread]: Running with dbt=1.11.11
+[0m13:37:43.961568 [debug] [MainThread]: running dbt with arguments {'empty': 'None', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'log_format': 'default', 'write_json': 'True', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init bandcamp_transformation', 'log_path': 'logs', 'quiet': 'False', 'indirect_selection': 'eager', 'use_colors': 'True', 'debug': 'False', 'introspect': 'True', 'fail_fast': 'False', 'target_path': 'None', 'log_cache_events': 'False', 'printer_width': '80', 'cache_selected_only': 'False', 'no_print': 'None', 'version_check': 'True', 'profiles_dir': '/home/cliffe/.dbt'}
+[0m13:37:44.003326 [debug] [MainThread]: Starter project path: /home/cliffe/bandcamp-data-cleaning/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m13:37:44.005082 [info ] [MainThread]: 
+Your new dbt project "bandcamp_transformation" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m13:37:44.005451 [info ] [MainThread]: Setting up your profile.
+[0m13:40:51.263910 [info ] [MainThread]: Profile bandcamp_transformation written to /home/cliffe/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m13:40:51.266218 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 187.39714, "process_in_blocks": "3392", "process_kernel_time": 0.189878, "process_mem_max_rss": "128340", "process_out_blocks": "34512", "process_user_time": 2.689277}
+[0m13:40:51.266918 [debug] [MainThread]: Command `dbt init` succeeded at 13:40:51.266770 after 187.40 seconds
+[0m13:40:51.267423 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd2b4f71730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd2b4ed0680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd2b49035c0>]}
+[0m13:40:51.267975 [debug] [MainThread]: Flushing usage events
+[0m13:40:52.608056 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:42:33.388679 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x753ee010cd10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x753ee03a4fe0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x753edfdcc890>]}
+
+
+============================== 13:42:33.391188 | 56e92d15-cc28-4f78-9577-bfab03783984 ==============================
+[0m13:42:33.391188 [info ] [MainThread]: Running with dbt=1.11.11
+[0m13:42:33.391660 [debug] [MainThread]: running dbt with arguments {'log_path': 'logs', 'log_cache_events': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'version_check': 'True', 'use_experimental_parser': 'False', 'debug': 'False', 'profiles_dir': '/home/cliffe/.dbt', 'static_parser': 'True', 'invocation_command': 'dbt seed', 'quiet': 'False', 'partial_parse': 'True', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'write_json': 'True', 'no_print': 'None', 'introspect': 'True', 'target_path': 'None', 'printer_width': '80', 'cache_selected_only': 'False', 'empty': 'None'}
+[0m13:42:33.392077 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/cliffe/bandcamp-data-cleaning/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m13:42:33.392877 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 0.057601366, "process_in_blocks": "0", "process_kernel_time": 0.095967, "process_mem_max_rss": "103812", "process_out_blocks": "16", "process_user_time": 1.182599}
+[0m13:42:33.393508 [debug] [MainThread]: Command `dbt seed` failed at 13:42:33.393393 after 0.06 seconds
+[0m13:42:33.393881 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x753edf0b8ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x753edf130e30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x753edf057950>]}
+[0m13:42:33.394266 [debug] [MainThread]: Flushing usage events
+[0m13:42:34.944982 [debug] [MainThread]: An error was encountered while trying to flush usage events
