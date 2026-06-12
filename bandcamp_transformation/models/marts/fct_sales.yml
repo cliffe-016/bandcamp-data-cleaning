@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: "The core fact table for Bandcamp transactions."
+    columns:
+      - name: sale_key
+        tests:
+          - unique
+          - not_null
+
+      - name: artist_key
+        description: "Foreign key connecting to dim_artist."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_artist')
+              field: artist_key
+
+      - name: item_key
+        description: "Foreign key connecting to dim_item."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_item')
+              field: item_key
