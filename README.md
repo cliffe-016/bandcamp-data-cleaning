@@ -37,12 +37,12 @@ Building this pipeline required solving several critical data anomalies and stru
 ### 2. The Multi-Item Cart Anomaly (Surrogate Keys)
 **The Problem:** The source system's id was assumed to be a unique primary key. However, uniqueness testing revealed duplicate IDs. The source _id represented a Transaction ID (`sale url` + `utc timestamp`), not a Line-Item ID, meaning fans buying multiple items simultaneously broke the grain of the table.
 
-**The Solution:** Engineered a true deterministic surrogate key (`sale_key`) at the line-item grain using `dbt_utils.generate_surrogate_key` by hashing a composite of the id, Artist Name, and Album Title.
+**The Solution:** Engineered a true deterministic surrogate key (`sale_key`) at the line-item grain using `dbt_utils.generate_surrogate_key` by hashing a composite of the id, Artist Name and Album Title.
 
 ### 3. The Discount Logic
-**The Problem:** Bandcamp allows promotional discount codes. If an album cost $10 but a fan paid $5, the basic tip math (`amount_paid` - `item_price`) resulted in a tip of -$5.00, ruining financial aggregates.
+**The Problem:** Bandcamp allows promotional discount codes. If an album cost $10 but a fan paid $5, the basic tip (`amount_paid` - `item_price`) resulted in a negative value, ruining financial aggregates.
 
-**The Solution:** Implemented a logical floor using Postgres's GREATEST(0, ...) function to cap tips at $0.00. Additionally, split the logic to capture explicit discounts in a dedicated `discount_usd` column to ensure gross vs. net revenue could be accurately modeled in the Gold layer.
+**The Solution:** Implemented Postgres's `GREATEST(0, ...)` function to cap tips at $0.00. Additionally, split the logic to capture explicit discounts in a `discount_usd` column to ensure gross vs. net revenue could be accurately modelled in the Gold layer.
 
 
 ## Testing
